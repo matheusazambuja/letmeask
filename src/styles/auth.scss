@@ -3,17 +3,68 @@
   align-items: stretch;
   height: 100vh;
 
+  &.dark {
+    background-color: #23242a;
+
+    aside {
+      color: #F8F8F8;
+    }
+
+    main {
+      form {
+        input {
+          background-color: #323741;
+          border: 0;
+          color: #F8F8F8;
+          
+          &::placeholder {
+            color: #727685;
+          }
+        }
+      }
+    }
+
+    .main-content {
+      h2 {
+        color: #FFFFFF;
+      }
+
+      p {
+        color: #F8F8F8;
+      }
+    }
+
+    .create-room {
+      background-color: #23242a;
+      color: #FFFFFF;
+      border: 1px solid #835afd;
+    }
+
+    .separator {
+      color: #727685;
+
+      &::before {
+        background: #727685;
+      }
+    
+      &::after {
+        background: #727685;
+      }
+    }
+  }
+
   aside {
     flex: 7;
-
     background: #835afd;
-    color: #FFFFFF;
+    color: #fff;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 
     padding: 120px 80px;
+
+    transition: all 0.2s;
 
     img {
       max-width: 320px;
@@ -28,7 +79,7 @@
     p {
       font-size: 24px;
       line-height: 32px;
-      margin-top: 16px;
+      margin-top: 12px;
       color: #f8f8f8;
     }
   }
@@ -36,20 +87,28 @@
   main {
     flex: 8;
 
-    padding: 0 32px;
+    padding: 0 2rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    transition: all 0.2s;
+
+    .text-mobile--light {
+      display: none;
+    }
   }
 
   .main-content {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 320px;
+    max-width: 20rem;
     align-items: stretch;
     text-align: center;
+
+    transition: all 0.2s;
 
     > img {
       align-self: center;
@@ -63,19 +122,24 @@
 
     form {
       input {
-        height: 50px;
-        border-radius: 8px;
-        padding: 0 16px;
-        background: #FFFFFF;
+        height: 5rem;
+        border-radius: 16px;
+        padding: 0 2rem;
+        background:#FFF;
         border: 1px solid #a8a8b3;
+        font-family: Poppins, sans-serif;
+
+        transition: all 0.2s;
       }
 
       button {
-        margin-top: 16px;
+        margin-top: 1rem;
       }
 
       button, input {
         width: 100%;
+
+        transition: all 0.2s;
       }
     }
 
@@ -84,36 +148,44 @@
       color: #737380;
       margin-top: 16px;
 
+      transition: all 0.2s;
+
       a {
         color: #e559f9;
+
+        transition: all 0.2s;
       }
     }
   }
 }
 
 .create-room {
-  margin-top: 64px;
-  height: 50px;
-  border-radius: 8px;
+  margin-top: 3.5rem;
+  height: 5rem;
+  padding: 0 2rem;
+  border: 1px solid #a8a8b3;
+  border-radius: 16px;
   font-weight: 500;
-  background: #ea4335;
-  color: #FFFFFF;
+  background: #e6e6e6;
+  color: #29292e;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
   cursor: pointer;
-  border: 0;
+  // border: 0;
 
-  transition: filter 0.2s;
+  transition: all 0.2s;
 
   img {
-    margin-right: 8px;
+    margin-right: 1rem;
+
+    transition: all 0.2s;
   }
 
   &:hover {
-    filter: brightness(0.9);
+    filter: brightness(0.9)
   }
 }
 
@@ -121,16 +193,18 @@
   font-size: 14px;
   color: #a8a8b3;
 
-  margin: 32px 0;
+  margin: 3.5rem 0;
   display: flex;
   align-items: center;
+
+  transition: all 0.2s;
 
   &::before {
     content: '';
     flex: 1;
     height: 1px;
     background: #a8a8b3;
-    margin-right: 16px;
+    margin-right: 1rem;
   }
 
   &::after {
@@ -138,6 +212,30 @@
     flex: 1;
     height: 1px;
     background: #a8a8b3;
-    margin-left: 16px;
+    margin-left: 1rem;
+  }
+}
+
+@media (max-width: 2600px) {
+  #page-auth {
+    main {
+      .main-content {
+        max-width: 31rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #page-auth {
+    justify-content: center;
+    
+    aside {
+      display: none;
+    }
+
+    main {
+      max-width: 36rem;
+    }
   }
 }
