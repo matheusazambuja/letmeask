@@ -1,0 +1,490 @@
+#page-admin-room {
+  min-height: 100%;
+
+  &.dark {
+    background-color: #23242a;
+
+    header {
+      border-radius: 1px solid #2d2e31;
+      border-bottom: 2px solid #2d2e31;
+
+      .button {
+        &.outlined {
+          color: #F8F8F8;   
+        }
+      }
+    }
+
+    main {
+      color: #F8F8F8;
+
+      .room-title {
+        h1 {
+          color: #F8F8F8;
+        }
+  
+        span {
+          background-color: transparent;
+          border: 1px solid #e559f9;
+        }
+      }
+  
+      form {
+        textarea {
+          background-color: #323741;
+          border: 0;
+          color: #F8F8F8;
+          
+          &::placeholder {
+            color: #727685;
+          }
+
+          &:focus {
+            outline-color: #323741;
+          }
+        }
+  
+        .form-footer {
+          .user-info {
+            span {
+              color: #F8F8F8;
+            }
+          }
+    
+          > span {
+            color: #F8F8F8;
+    
+            button {
+              background-color: transparent;
+              color: #835AFD;
+    
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      .question-list {
+        .no-questions {
+          span {
+            color: #F8F8F8;
+          }
+  
+          p {
+            color: #727685;
+          }
+        }
+      }
+    }
+  }
+
+  header {
+    padding: 1.1rem;
+    border-radius: 1px solid #e2e2e2;
+    border-bottom: 2px solid #e2e2e2;
+
+    transition: all 0.2s;
+  
+    .content {
+      max-width: 80rem;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      transition: all 0.2s;
+
+      > img {
+        max-height: 4.5rem;
+        margin-top: 0.4rem;
+      }
+
+      > div {
+        display: flex;
+        gap: 1rem;
+
+        button {
+          height: 3.5rem;
+        }
+      }
+    }
+  }
+
+  main {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 4rem 20rem;
+
+    transition: all 0.2s;
+
+    .room-title {
+      width: fit-content;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+
+      transition: all 0.2s;
+
+      h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.5rem;
+        color: #29292e;
+
+        transition: all 0.2s;
+      }
+
+      span {
+        margin-left: 1.5rem;
+        background-color: #e559f9;
+        border-radius: 9999px;
+        padding: 0.5rem 1rem;
+        color: #FFF;
+        font-weight: 500;
+        font-size: 1.1rem;
+
+        transition: all 0.2s;
+      }
+    }
+
+    form {
+      textarea {
+        width: 100%;
+        border: 0;
+        padding: 2rem;
+        border-radius: 8px;
+        background-color: #fefefe;
+        box-shadow: rgba(0, 0, 0, 0.04);
+        resize: vertical;
+        min-height: 130px;
+
+        transition: all 0.2s;
+
+        &:focus {
+          outline-width: 6px;
+          outline-color: #835AFD;
+        }
+      }
+
+      .form-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+
+        transition: all 0.2s;
+
+        .user-info {
+          display: flex;
+          align-items: center;
+
+          transition: all 0.2s;
+
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+
+            transition: all 0.2s;
+          }
+
+          span {
+            margin-left: 1rem;
+            color: #29292e;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.2px;
+
+            transition: all 0.2s;
+          }
+        }
+
+        > span {
+          font-size: 0.9rem;
+          color: #737380;
+          font-weight: 500;
+
+          transition: all 0.2s;
+
+          button {
+            background-color: transparent;
+            border: 0;
+            color: #835AFD;
+            font-weight: 500;
+            text-decoration: underline;
+
+            cursor: pointer;
+
+            transition: all 0.2s;
+          }
+        }
+
+        .button {
+          height: 4.2rem;
+          padding: 0 3.5rem;
+        }
+      }
+    }
+
+    .question-list {
+      width: 100%;
+      align-self: center;
+
+      .question-children {
+        display: flex;
+        gap: 16px;
+      }
+
+      .no-questions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        margin-top: 8rem;
+        
+        svg {
+          margin-bottom: 24px;
+        }
+
+        span {
+          color: #29292e;
+          font-family: 'Poppins', sans-serif;
+          font-size: 1.2rem;
+          font-weight: 600;
+          text-align: center;
+
+          margin-bottom: 12px;
+        }
+
+        p {
+          color: #737380;
+          font-size: 1rem;
+          font-weight: 400;
+          text-align: center;
+
+          width: 23rem;
+        }
+      }
+    }
+  }
+}
+
+.dark {
+  .modal-content {
+    background-color: #323741;
+  
+    strong {
+      color: #F8F8F8;
+    }
+  
+    span {
+      margin-bottom: 2.4rem;
+      font-family: 'Roboto', sans-serif;
+      color: #afafaf;
+    }
+  
+    .buttons {
+      button {
+        background-color: #dbdcdd;
+        color: #737380;
+      }
+  
+      // .button-cancel {}
+  
+      .button-delete {
+        background-color: #e74b5d;
+        color: #FEFEFE;
+      }
+    }
+  }
+}
+
+.modal-content {
+  height: 23rem;
+  width: 37rem;
+  background-color: #F8F8F8;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.2s;
+
+  svg {
+    margin-bottom: 1.5rem;
+  }
+
+  strong {
+    margin-bottom: 0.8rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 34px;
+    text-align: center;
+  }
+
+  span {
+    margin-bottom: 2.4rem;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    transition: all 0.2s;
+
+    button {
+      width: 10rem;
+      height: 3rem;
+
+      border-radius: 8px;
+      padding: 0 2rem;
+      margin: 0px 8px;
+      font-weight: 500;
+      
+      cursor: pointer;
+      border: 0;
+
+      background-color: #dbdcdd;
+      color: #737380;
+
+      &:hover {
+        filter: brightness(0.9);
+      }
+    }
+
+    // .button-cancel {}
+
+    .button-delete {
+      background-color: #e74b5d;
+      color: #FEFEFE;
+    }
+  }
+}
+
+@media (max-width: 1980px) {
+  #page-admin-room {
+    main {
+      .question-list {
+        .no-questions {
+          svg {
+            width: 250px;
+            height: 250px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  #page-admin-room {
+    main {
+      margin: 4rem 14rem;
+      .question-list {
+        .no-questions {
+          svg {
+            width: 200px;
+            height: 200px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  #page-admin-room {
+    main {
+      margin: 4rem 10rem;
+      .question-list {
+        .no-questions {
+          svg {
+            width: 180px;
+            height: 180px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 768px) {
+  #page-admin-room {
+    header {
+      .content {
+        > img {
+          max-height: 4rem;
+        }
+      }
+    }
+
+    main {
+      padding: 0 1.5rem;
+      margin: 4rem 6rem;
+
+      .question-list {
+        .no-questions {
+          svg {
+            width: 160px;
+            height: 160px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 500px) {
+  #page-admin-room{
+    header {
+      padding: 24px;
+
+      .content {
+        flex-direction: column;
+
+        > img {
+          margin: 0;
+          margin-bottom: 8px;
+        }
+      }
+    }
+  
+    main {
+      margin: 2rem 2rem;
+
+      align-items: center;
+  
+      .room-title {
+        flex-direction: column;
+        // align-self: center;
+        margin: 0;
+        margin-bottom: 2rem;
+  
+        h1 {
+          margin-bottom: 0.5rem;
+        }
+  
+        span {
+          margin: 0;
+        }
+      }
+
+      .question-list {
+        .no-questions {
+          svg {
+            width: 200px;
+            height: 200px;
+          }
+        }
+      }
+    }
+  }
+}

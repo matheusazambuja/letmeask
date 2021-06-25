@@ -1,19 +1,19 @@
 import { FormEvent, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import illustrationImg from '../assets/images/illustration.svg';
-import logoImgLight from '../assets/images/logo-light.svg';
-import logoImgDark from '../assets/images/logo-dark.svg';
-import googleIconImgLight from '../assets/images/google-icon-light.svg'
-import googleIconImgDark from '../assets/images/google-icon-dark.svg'
+import illustrationImg from '../../assets/images/illustration.svg';
+import logoImgLight from '../../assets/images/logo-light.svg';
+import logoImgDark from '../../assets/images/logo-dark.svg';
+import googleIconImgLight from '../../assets/images/google-icon-light.svg'
+import googleIconImgDark from '../../assets/images/google-icon-dark.svg'
 
-import '../styles/auth.scss';
-import { Button } from '../components/Button';
-import { useAuth } from '../hooks/useAuth';
-import { database } from '../services/firebase';
+import './styles.scss';
+import { Button } from '../../components/Button';
+import { useAuth } from '../../hooks/useAuth';
+import { database } from '../../services/firebase';
 import toast from 'react-hot-toast';
-import { useTheme } from '../hooks/useTheme';
-import { ButtonToggleTheme } from '../components/ButtonToggleTheme';
+import { useTheme } from '../../hooks/useTheme';
+import { ButtonToggleTheme } from '../../components/ButtonToggleTheme';
 
 export function Home() {
   const {
@@ -37,18 +37,23 @@ export function Home() {
     event.preventDefault();
 
     if (roomCode.trim() === '') {
+      toast.error('Insira o código da sala');
       return;
     }
 
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if (!roomRef.exists()) {
-      toast.error('Sala não existe');
+      toast.error('Código incorreto');
 
       return;
     }
 
-    history.push(`/rooms/${roomCode}`);
+    if (!roomRef.val().closedAt) {
+      history.push(`/rooms/${roomCode}`);
+    } else {
+      toast.error('Sala encerrada');
+    }
   }
 
   return (
