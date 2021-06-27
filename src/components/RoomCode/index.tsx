@@ -2,7 +2,6 @@ import toast from 'react-hot-toast';
 import copyImg from '../../assets/images/copy.svg';
 import { useTheme } from '../../hooks/useTheme';
 
-import { IoMdExit } from 'react-icons/io';
 import { FiCopy } from 'react-icons/fi';
 
 import './styles.scss';
