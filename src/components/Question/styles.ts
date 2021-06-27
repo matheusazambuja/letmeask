@@ -4,10 +4,7 @@ export const ContainerQuestion = styled.div`
   #question {
     border-radius: 12px;
     padding: 32px 36px;
-
-    & + #question {
-      margin-top: 24px;
-    }
+    margin-top: 24px;
     
     &.light {
       background-color: #fefefe;
@@ -37,6 +34,7 @@ export const ContainerQuestion = styled.div`
     
       &.answered {
         background-color: #DBDCDD;
+        box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.15);
       }
     }
 
@@ -60,7 +58,8 @@ export const ContainerQuestion = styled.div`
 
       &.answered {
         background-color: transparent;
-        filter:brightness(0.9);
+        box-shadow: 0px 1px 6px rgba(252, 252, 252, 0.04);
+        filter: brightness(0.9);
 
         footer .question-children button .icon-answered {
           svg {
