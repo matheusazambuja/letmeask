@@ -25,10 +25,6 @@ export function Home() {
   const [roomCode, setRoomCode] = useState('');
   const history = useHistory();
 
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
-
   async function handleCreateRoom() {
     if (!user) {
       await signInWithGoogle();
