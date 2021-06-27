@@ -3,7 +3,9 @@ import { ButtonHTMLAttributes } from 'react';
 import { useTheme } from '../../hooks/useTheme';
 import { FaSun, FaMoon } from 'react-icons/fa'
 
-import './styles.scss';
+// import './styles.scss';
+
+import { ContainerButtonToggleTheme } from './styles';
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -13,10 +15,8 @@ export function ButtonToggleTheme(props: ButtonProps) {
   } = useTheme();
 
   return (
-    <button className="button-theme" onClick={toggleTheme} {...props}
-      style={{ backgroundColor: 'transparent', color: theme === 'dark' ? '#FFFFFF' : '#29292e' }}
-    >
+    <ContainerButtonToggleTheme onClick={toggleTheme} theme={theme} {...props}>
       {theme === 'light' ? <FaMoon /> : <FaSun />}
-    </button>
+    </ContainerButtonToggleTheme>
   )
 }

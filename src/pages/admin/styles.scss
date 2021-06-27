@@ -17,11 +17,9 @@
   &.dark {
     background-color: #23242A;
 
-    header {
-      .button {
-        &.outlined {
-          color: #F8F8F8;   
-        }
+    header .content button {
+      &.outlined {
+        color: #F8F8F8;
       }
     }
 
@@ -339,10 +337,27 @@
   }
 }
 
+.light {
+  .modal-content {
+    background-color: #F8F8F8;
+    .buttons {
+      button {
+        background-color: #dbdcdd;
+        color: #737380;
+      }
+  
+      .button-delete {
+        background-color: #e74b5d;
+        color: #FEFEFE;
+      }
+    }
+  }
+}
+
 .modal-content {
   height: 23rem;
   width: 37rem;
-  background-color: #F8F8F8;
+  
   border-radius: 8px;
   margin: 0 2rem;
 

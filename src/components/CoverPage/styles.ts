@@ -1,24 +1,10 @@
-.dark {
-  aside {
-    background-color: #aa3c41;
-    background-color: #323741;
-    color: #F8F8F8;
-  }
-}
+import styled from 'styled-components';
 
-.light {
-  aside {
-    background-color: #323741;
-    // background-color: #aa3c41;
-    color: #fff;
+export const ContainerCoverPage = styled.aside`
+  /* Style theme */
+  background-color: ${props => props.theme === 'dark' ? '#323741' : '#323741'};
+  color: ${props => props.theme === 'dark' ? '#F8F8F8' : '#f8f8f8'};
 
-    p {
-      color: #f8f8f8;
-    }
-  }
-}
-
-aside {
   flex: 5;
 
   display: flex;
@@ -44,18 +30,13 @@ aside {
     font-size: 24px;
     line-height: 32px;
     margin-top: 12px;
-    color: #f8f8f8;
   }
-}
 
-@media (max-width: 1300px) {
-  aside {
-    text-align: center;
+  @media (max-width: 1300px) {
+      text-align: center;
   }
-}
 
-@media (max-width: 768px) {
-  aside {
+  @media (max-width: 768px) {
     display: none;
   }
-}
+`;

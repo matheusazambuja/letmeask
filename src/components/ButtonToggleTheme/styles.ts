@@ -1,4 +1,10 @@
-.button-theme {
+import styled from "styled-components";
+
+export const ContainerButtonToggleTheme = styled.button`
+  /* Style theme */
+  background-color: ${props => props.theme === 'dark' ? '#23242a' : '#f8f8f8'};
+  color: ${props => props.theme === 'dark' ? '#FFFFFF' : '#29292e'};
+
   position: fixed;
   bottom: 24px;
   right: 24px;
@@ -19,4 +25,4 @@
   &:hover {
     filter: brightness(0.9);
   }
-}
+`;

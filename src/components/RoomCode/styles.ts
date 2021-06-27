@@ -1,4 +1,7 @@
-#room-code {
+import styled from "styled-components";
+
+
+export const ContainerRoomCode = styled.button`
   height: 3.5rem;
   border-radius: 8px;
   overflow: hidden;
@@ -57,10 +60,8 @@
     font-size: 1rem;
     font-weight: 500;
   }
-}
 
-@media(max-width: 768px) {
-  #room-code {
+  @media (max-width: 768px) {
     div {
       padding: 0 8px;
 
@@ -73,10 +74,8 @@
       font-size: 0.8rem;
     }
   }
-}
 
-@media(max-width: 500px) {
-  #room-code {
+  @media (max-width: 500px) {
     display: flex;
     align-items: center;
     
@@ -110,4 +109,4 @@
       height: 2.5rem;
     }
   }
-}
+`;

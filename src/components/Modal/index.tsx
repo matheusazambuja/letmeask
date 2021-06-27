@@ -18,7 +18,7 @@ export function Modal({ isOpen, theme, onRequestClose, children }: ModalProps) {
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       className={`modal ${theme}`}
-      overlayClassName='overlay-modal'
+      overlayClassName={`overlay-modal ${theme}`}
     >
       {children}
     </ReactModal>

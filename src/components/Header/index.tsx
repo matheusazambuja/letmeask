@@ -1,15 +1,19 @@
 import { ReactNode } from "react"
-
-import './styles.scss';
+import { useTheme } from "../../hooks/useTheme";
+import { ContainerHeader } from "./styles";
 
 type HeaderProps = {
   children?: ReactNode;
 }
 
 export function Header({ children }: HeaderProps) {
+  const {
+    theme
+  } = useTheme();
+
   return (
-    <header>
+    <ContainerHeader theme={theme}>
       {children}
-    </header>
+    </ContainerHeader>
   )
 }

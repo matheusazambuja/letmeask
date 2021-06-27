@@ -6,10 +6,6 @@
   &.dark {
     background-color: #23242a;
 
-    aside {
-      color: #F8F8F8;
-    }
-
     main {
       form {
         input {
@@ -50,36 +46,6 @@
       &::after {
         background: #727685;
       }
-    }
-  }
-
-  aside {
-    flex: 7;
-    color: #fff;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    padding: 120px 80px;
-
-    transition: all 0.2s;
-
-    img {
-      max-width: 320px;
-    }
-
-    strong {
-      font: 700 36px 'Poppins', sans-serif;
-      line-height: 42px;
-      margin-top: 16px;
-    }
-
-    p {
-      font-size: 24px;
-      line-height: 32px;
-      margin-top: 12px;
-      color: #f8f8f8;
     }
   }
 
@@ -228,10 +194,6 @@
 @media (max-width: 768px) {
   #page-auth {
     justify-content: center;
-    
-    aside {
-      display: none;
-    }
 
     main {
       max-width: 36rem;
