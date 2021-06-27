@@ -1,7 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
-import illustrationImg from '../../assets/images/illustration.svg';
 import logoImgLight from '../../assets/images/logo-light.svg';
 import logoImgDark from '../../assets/images/logo-dark.svg';
 
@@ -11,6 +10,7 @@ import { database } from '../../services/firebase';
 import { useAuth } from '../../hooks/useAuth';
 import { useTheme } from '../../hooks/useTheme';
 import { ButtonToggleTheme } from '../../components/ButtonToggleTheme';
+import { CoverPage } from '../../components/CoverPage';
 
 export function NewRoom() {
   const {
@@ -38,17 +38,13 @@ export function NewRoom() {
       authorId: user?.id
     });
 
-    history.push(`/rooms/${firebaseRoom.key}`);
+    history.push(`/admin/rooms/${firebaseRoom.key}`);
   }
 
   return (
     <div id='page-auth' className={theme}>
       <ButtonToggleTheme />
-      <aside>
-        <img src={illustrationImg} alt='Ilustração simbolizando perguntas e respostas' />
-        <strong>Crie salas de Q&amp;A e ao-vivo</strong>
-        <p>Tire as dúvidas da sua audiência em tempo-real</p>
-      </aside>
+      <CoverPage />
       <main>
         <div className='main-content'>
           <img src={theme === 'light' ? logoImgLight : logoImgDark} alt='Letmeask' />

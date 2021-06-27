@@ -2,6 +2,9 @@ import toast from 'react-hot-toast';
 import copyImg from '../../assets/images/copy.svg';
 import { useTheme } from '../../hooks/useTheme';
 
+import { IoMdExit } from 'react-icons/io';
+import { FiCopy } from 'react-icons/fi';
+
 import './styles.scss';
 
 type RoomCodeProps = {
@@ -25,6 +28,7 @@ export function RoomCode(props: RoomCodeProps) {
         <img src={copyImg} alt="Copy room Code" />
       </div>
       <span>Sala #{props.code}</span>
+      <FiCopy className='icon-copy-mobile' />
     </button>
   )
 }

@@ -1,13 +1,23 @@
 #page-admin-room {
   min-height: 100%;
 
+  &.light {
+    header {
+      .content {
+        div {
+          button.outlined {
+            border: 2px solid #e2e2e2;
+            color: #545458;
+          }
+        }
+      }
+    }
+  }
+
   &.dark {
-    background-color: #23242a;
+    background-color: #23242A;
 
     header {
-      border-radius: 1px solid #2d2e31;
-      border-bottom: 2px solid #2d2e31;
-
       .button {
         &.outlined {
           color: #F8F8F8;   
@@ -25,7 +35,7 @@
   
         span {
           background-color: transparent;
-          border: 1px solid #e559f9;
+          border: 1px solid #e5534b;
         }
       }
   
@@ -56,7 +66,7 @@
     
             button {
               background-color: transparent;
-              color: #835AFD;
+              color: #e5534b;
     
               cursor: pointer;
             }
@@ -79,12 +89,6 @@
   }
 
   header {
-    padding: 1.1rem;
-    border-radius: 1px solid #e2e2e2;
-    border-bottom: 2px solid #e2e2e2;
-
-    transition: all 0.2s;
-  
     .content {
       max-width: 80rem;
       margin: 0 auto;
@@ -97,11 +101,15 @@
       > img {
         max-height: 4.5rem;
         margin-top: 0.4rem;
+
+        transition: all 0.2s;
       }
 
       > div {
         display: flex;
         gap: 1rem;
+
+        transition: all 0.2s;
 
         button {
           height: 3.5rem;
@@ -117,6 +125,39 @@
     margin: 4rem 20rem;
 
     transition: all 0.2s;
+
+    .login-required {
+      align-self: center;
+      display: flex;
+      flex-direction: column;
+      padding: 0 1rem;
+
+      transition: all 0.2s;
+      
+      svg {
+        align-self: center;
+        margin-top: 5rem;
+      }
+
+      span {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 500;
+        text-align: center;
+
+        margin-top: 3.5rem;
+      }
+
+      button {
+        font-size: 1.2rem;
+        margin-top: 2rem;
+
+        align-self: center;
+        width: 20rem;
+        height: 4rem;
+      }
+
+    }
 
     .room-title {
       width: fit-content;
@@ -136,7 +177,7 @@
 
       span {
         margin-left: 1.5rem;
-        background-color: #e559f9;
+        background-color: #e5534b;
         border-radius: 9999px;
         padding: 0.5rem 1rem;
         color: #FFF;
@@ -162,7 +203,7 @@
 
         &:focus {
           outline-width: 6px;
-          outline-color: #835AFD;
+          outline-color: #e5534b;
         }
       }
 
@@ -181,8 +222,8 @@
           transition: all 0.2s;
 
           img {
-            width: 40px;
-            height: 40px;
+            width: 2.5rem;
+            height: 2.5rem;
             border-radius: 50%;
 
             transition: all 0.2s;
@@ -209,7 +250,7 @@
           button {
             background-color: transparent;
             border: 0;
-            color: #835AFD;
+            color: #e5534b;
             font-weight: 500;
             text-decoration: underline;
 
@@ -290,8 +331,6 @@
         color: #737380;
       }
   
-      // .button-cancel {}
-  
       .button-delete {
         background-color: #e74b5d;
         color: #FEFEFE;
@@ -305,6 +344,7 @@
   width: 37rem;
   background-color: #F8F8F8;
   border-radius: 8px;
+  margin: 0 2rem;
 
   display: flex;
   flex-direction: column;
@@ -359,8 +399,6 @@
         filter: brightness(0.9);
       }
     }
-
-    // .button-cancel {}
 
     .button-delete {
       background-color: #e74b5d;
@@ -420,6 +458,7 @@
   #page-admin-room {
     header {
       .content {
+        padding: 1rem 2rem;
         > img {
           max-height: 4rem;
         }
@@ -445,11 +484,9 @@
 @media(max-width: 500px) {
   #page-admin-room{
     header {
-      padding: 24px;
+      padding: 1rem 2rem;
 
       .content {
-        flex-direction: column;
-
         > img {
           margin: 0;
           margin-bottom: 8px;
@@ -461,15 +498,21 @@
       margin: 2rem 2rem;
 
       align-items: center;
+
+      .login-required {
+        svg {
+          width: 28rem;
+        }
+      }
   
       .room-title {
-        flex-direction: column;
-        // align-self: center;
+        align-self: flex-start;
         margin: 0;
         margin-bottom: 2rem;
+        margin-left: 1rem;
   
         h1 {
-          margin-bottom: 0.5rem;
+          margin-right: 1rem;
         }
   
         span {
@@ -488,3 +531,57 @@
     }
   }
 }
+
+@media(max-width: 450px) {
+  #page-admin-room{
+    main {
+      margin: 2rem 2rem;
+
+      align-items: center;
+  
+      .room-title {
+
+        h1 {
+          text-align: center;
+        }
+  
+        span {
+          margin: 0;
+          text-align: center;
+        }
+      }
+
+      #question {
+        padding: 18px 24px;
+      }
+
+      footer {
+        .user-info {
+          img {
+            width: 2.5rem;
+            height: 2.5rem;
+          }
+        }
+
+        .question-children {
+          button {
+            svg {
+              width: 1.7rem;
+              height: 1.7rem;
+            }
+          }
+        }
+      }
+
+      .question-list {
+        .no-questions {
+          svg {
+            width: 120px;
+            height: 120px;
+          }
+        }
+      }
+    }
+  }
+}
+

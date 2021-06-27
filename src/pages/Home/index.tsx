@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import illustrationImg from '../../assets/images/illustration.svg';
@@ -25,6 +25,10 @@ export function Home() {
   const [roomCode, setRoomCode] = useState('');
   const history = useHistory();
 
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
+
   async function handleCreateRoom() {
     if (!user) {
       await signInWithGoogle();
@@ -44,7 +48,7 @@ export function Home() {
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if (!roomRef.exists()) {
-      toast.error('Código incorreto');
+      toast.error('Código de sala incorreto');
 
       return;
     }

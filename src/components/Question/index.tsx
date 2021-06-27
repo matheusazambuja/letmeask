@@ -6,7 +6,6 @@ import './styles.scss';
 type QuestionProps = {
   isAnswered?: boolean;
   isHighlighted?: boolean;
-  questionId: string;
   content: string;
   author: {
     name: string;
@@ -15,7 +14,7 @@ type QuestionProps = {
   children?: ReactNode;
 }
 
-export function Question({ questionId, isAnswered, isHighlighted, content, author, children }: QuestionProps) {
+export function Question({ isAnswered, isHighlighted, content, author, children }: QuestionProps) {
   const {
     theme
   } = useTheme();
@@ -23,7 +22,7 @@ export function Question({ questionId, isAnswered, isHighlighted, content, autho
   // console.log(author);
 
   return (
-    <div id="question" key={questionId}
+    <div id="question"
       className={`${theme} ${isHighlighted && !isAnswered ? 'highlighted' : ''} ${isAnswered ? 'answered' : ''}`}
     >
       <p>{content}</p>

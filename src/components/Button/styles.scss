@@ -2,7 +2,7 @@
   height: 5rem;
   border-radius: 16px;
   font-weight: 500;
-  background: #835afd;
+  background: #e5534b;
   color: #FFFFFF;
   padding: 0 2rem;
 
@@ -21,8 +21,8 @@
 
   &.outlined {
     background-color: transparent;
-    border: 1px solid #835afd;
-    color: #835afd;
+    border: 4px solid #323741;
+    color: #e5534b;
   }
 
   &:not(:disabled):hover {
@@ -30,7 +30,7 @@
   }
 
   &:disabled {
-    opacity: 0.6;
+    opacity: 0.4;
     cursor: not-allowed;
   }
 }
