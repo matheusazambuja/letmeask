@@ -80,6 +80,7 @@ export function useRoom(roomId: string) {
     const questionsRef = database.ref(`rooms/${roomId}/questions`);
 
     questionsRef
+      .endAt(1)
       .limitToLast(1)
       .on('child_added', question => {
         const questionKey = question.key ?? '';
@@ -87,11 +88,23 @@ export function useRoom(roomId: string) {
 
         const parsedQuestion: QuestionType = parseQuestion(questionKey, databaseQuestion);
 
-        setQuestions(oldQuestions => [...oldQuestions, parsedQuestion]);
+        setQuestions(oldQuestions => {
+          const questionKeys = oldQuestions.map(questions => questions.id);
+
+          if (!questionKeys.includes(parsedQuestion.id)) {
+            const newQuestions = oldQuestions.filter(
+              question => parsedQuestion.id !== question.id
+            );
+
+            return [...newQuestions, parsedQuestion];
+          }
+
+          return oldQuestions;
+        });
       });
 
     questionsRef
-      .on('child_changed', (question) => {
+      .on('child_changed', question => {
         const questionKey = question.key ?? '';
         const databaseQuestion: FirebaseQuestion = question.val();
 
@@ -108,16 +121,20 @@ export function useRoom(roomId: string) {
       .on('child_removed', question => {
         const questionKey = question.key ?? '';
 
-        setQuestions(oldQuestions => oldQuestions.filter(
-          question => question.id !== questionKey
-        ));
-      })
+        setQuestions(oldQuestions => {
+          const newQuestions = oldQuestions.filter(
+            question => question.id !== questionKey
+          );
+
+          return newQuestions;
+        });
+      });
 
     return () => {
       questionsRef.off('child_added');
-      questionsRef.off('child_changed');
       questionsRef.off('child_removed');
-    };
+      questionsRef.off('child_changed');
+    }
   }, [roomId, user?.id, parseQuestion]);
 
   // Utilizar ChildAdded ao invés de recarregar todas as perguntas novamente
@@ -128,7 +145,6 @@ export function useRoom(roomId: string) {
   // somente uma vez, assim quando novas perguntas forem adicionadas
   // o evento não seja executado novamente;
   async function handleAddedQuestion(content: string, userName: string, userAvatar: string) {
-
     const question = {
       content,
       author: {
@@ -142,11 +158,6 @@ export function useRoom(roomId: string) {
     await database.ref(`rooms/${roomId}/questions`).push(question);
   }
 
-  async function handleRemovedQuestion(questionId?: string) {
-    await database.ref(`rooms/${roomId}/questions/${questionId}`)
-      .remove();
-  }
-
   async function handleUpdateQuestionLikes(questionId: string, likeId?: string) {
     if (likeId) {
       await database.ref(`rooms/${roomId}/questions/${questionId}/likes/${likeId}`).remove();
@@ -155,21 +166,6 @@ export function useRoom(roomId: string) {
         authorId: user?.id
       });
     }
-    // database.ref(`rooms/${roomId}/questions/${questionId}/likes`)
-    //   .once('value', likes => {
-    //     const databaseLikes: FirebaseLikes = likes.val();
-    //     const quantLikes = likes.val() ? Object.values(likes?.val())?.length : 0;
-
-    //     const likeIdUserLiked = Object.entries(databaseLikes ?? {}).find(([key, like]) => like.authorId === user?.id)?.[0];
-
-    //     const questionsUpdated = questions.map(question => {
-    //       return questionId === question.id ?
-    //         { ...question, likeId: likeIdUserLiked, likeCount: quantLikes }
-    //         : question;
-    //     });
-
-    //     setQuestions(questionsUpdated);
-    //   })
   }
 
   async function handleUpdatedQuestion(questionId: string, type: string) {
@@ -205,7 +201,6 @@ export function useRoom(roomId: string) {
     title,
     handleAddedQuestion,
     handleUpdateQuestionLikes,
-    handleRemovedQuestion,
     handleUpdatedQuestion,
     handleEndRoom
   };

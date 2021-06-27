@@ -9,32 +9,35 @@ export const ContainerCoverPage = styled.aside`
 
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
 
-  padding: 120px 80px;
+  padding: 7.5rem 5rem;
 
   transition: all 0.2s;
 
   img {
-    max-width: 320px;
+    max-width: 20rem;
   }
 
   strong {
-    font: 700 36px 'Poppins', sans-serif;
-    line-height: 42px;
-    margin-top: 16px;
+    font: 700 2.2rem 'Poppins', sans-serif;
+    line-height: 2.6rem;
+    text-align: center;
+    margin-top: 1rem;
   }
 
   p {
-    font-size: 24px;
+    font-size: 1.5rem;
     line-height: 32px;
-    margin-top: 12px;
+    text-align: center;
+    margin-top: 0.8rem;
   }
 
-  @media (max-width: 1300px) {
-      text-align: center;
-  }
+  /* @media (max-width: 1300px) {
+    strong p {
+      
+    }
+  } */
 
   @media (max-width: 768px) {
     display: none;

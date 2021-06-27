@@ -133,11 +133,13 @@
       .question-list {
         .like-button {
           span {
-            color: #e5534b;
+            color: #F8F8F8;
           }
   
           &.liked {
-            color: #e5534b;
+            span {
+              color: #e5534b;
+            }
     
             svg path {
               stroke: #e5534b;
@@ -284,7 +286,8 @@
 
     .question-list {
       width: 100%;
-      margin-top: 6rem;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
       align-self: center;
 
       .like-button {
