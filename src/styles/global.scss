@@ -41,3 +41,28 @@ body, input, button, textarea {
     font-size: 75%; // 12px
   }
 }
+
+@media(max-width: 500px) {
+  html {
+    font-size: 68.75%; // 11px
+  }
+}
+
+@media(max-width: 400px) {
+  html {
+    font-size: 62.5%; // 10px
+  }
+}
+
+@media(max-width: 350px) {
+  html {
+    font-size: 56.25%; // 9px
+    stroke: 56.25%;
+  }
+}
+
+@media(max-width: 300px) {
+  html {
+    font-size: 50%; // 8x
+  }
+}
