@@ -6,7 +6,6 @@ import logoImgDark from '../../assets/images/logo-dark.svg';
 import googleIconImgLight from '../../assets/images/google-icon-light.svg'
 import googleIconImgDark from '../../assets/images/google-icon-dark.svg'
 
-import './styles.scss';
 import { Button } from '../../components/Button';
 import { useAuth } from '../../hooks/useAuth';
 import { database } from '../../services/firebase';
@@ -14,6 +13,8 @@ import toast from 'react-hot-toast';
 import { useTheme } from '../../hooks/useTheme';
 import { ButtonToggleTheme } from '../../components/ButtonToggleTheme';
 import { CoverPage } from '../../components/CoverPage';
+
+import './styles.scss';
 
 export function Home() {
   const {

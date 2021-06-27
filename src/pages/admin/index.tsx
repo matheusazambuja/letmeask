@@ -39,7 +39,6 @@ export function AdminRoom() {
   const {
     questions,
     title,
-    handleRemovedQuestion,
     handleUpdatedQuestion,
     handleEndRoom
   } = useRoom(roomId);
@@ -79,7 +78,8 @@ export function AdminRoom() {
 
   async function handleDeleteQuestion(questionId?: string) {
     if (questionId) {
-      await handleRemovedQuestion(questionId);
+      await database.ref(`rooms/${roomId}/questions/${questionId}`)
+        .remove();
 
       setQuestionIdModalOpen(undefined);
     }
@@ -189,7 +189,7 @@ export function AdminRoom() {
           <span>Tem certeza que você deseja excluir esta pergunta?</span>
           <div className="buttons">
             <button className='button-cancel' onClick={() => setQuestionIdModalOpen(undefined)}>Cancelar</button>
-            <button className='button-delete' onClick={async () => await handleDeleteQuestion(questionIdModalOpen)}>Sim, excluir</button>
+            <button className='button-delete' onClick={() => handleDeleteQuestion(questionIdModalOpen)}>Sim, excluir</button>
           </div>
         </div>
       </Modal>
