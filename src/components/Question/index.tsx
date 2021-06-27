@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 
 import { useTheme } from '../../hooks/useTheme';
 import { ContainerQuestion } from './styles';
-// import './styles.scss';
 
 type QuestionProps = {
   isAnswered?: boolean;

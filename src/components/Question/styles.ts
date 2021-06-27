@@ -47,8 +47,8 @@ export const ContainerQuestion = styled.div`
       border: 0;
 
       &.highlighted {
-        background-color: transparent;
-        border: 2px solid #aa3c41;
+        background-color: rgba(229, 83, 75, 0.3);
+        border: 1px solid #aa3c41;
         box-shadow: 0 2px 12px rgba(206, 206, 206, 0.04);
 
         .user-info {
@@ -91,7 +91,7 @@ export const ContainerQuestion = styled.div`
     }
 
     &.highlighted {
-      padding: 2.2rem 2.5rem;
+      padding: 36px 40px;
 
       transition: all 0.2s;
     }

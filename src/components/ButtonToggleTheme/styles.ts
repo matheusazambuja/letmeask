@@ -20,9 +20,14 @@ export const ContainerButtonToggleTheme = styled.button`
   cursor: pointer;
   border: 2px solid #e5534b;
 
-  transition: filter 0.2s;
+  transition: all 0.3s;
 
   &:hover {
     filter: brightness(0.9);
+    /* background-color: #e5534b; */
+  }
+
+  &:active {
+    background-color: #e5534b;
   }
 `;
